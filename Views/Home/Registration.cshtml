@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_Layout"; ;
+    ViewData["Title"] = "Registration";
+}
+<html>
+<body>
+    <form action="Registration" method="post" class="form-authorization">
+        <p>
+            <label>Login:</label> <br/>
+            <input type="text" name="login" required>
+    </p>
+        <p>
+            <lavel>Password:</lavel><br/>
+            <input type="password" name="password" required>
+        </p>
+        <p><input type="submit" value="Registrate"></p>
+    </form>
+    <a class="a-message">@ViewBag.Registration_Message</a>
+</body>
+</html>

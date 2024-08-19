@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "_LayoutUser";
+    ViewData["Title"] = "Make your order";
+}
+@using MVCE.Models;
+@model List<Car>
+@if(ViewData["Error_Message"]!=null)
+    {
+    <a class="a-message">@ViewData["Error_Message"]</a>
+    }
+
+<form action="Index" class="form-without-background">
+    <input type="submit" value="Cancel the order" />
+</form>
+    <form action = "Order" class="form-without-background">
+        <input type="submit" value="Change chosen cars" />
+    </form>
+<form method="post" action="CreateOrder" class="form-with-background">
+    <p>Choose the quantity for every car:</p>
+    @foreach(var car in Model)
+    {
+        <p>
+            <label>@(car.FullName)</label><br />
+            <input type="number" name="Quantity" />
+            <input type="hidden" name="CarIds" value="@car.CarID"/>
+        </p>
+    }
+    <p>
+        <input type="submit" value="Create an order" />
+    </p>
+</form>

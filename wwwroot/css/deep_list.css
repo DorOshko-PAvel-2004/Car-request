@@ -1,0 +1,20 @@
+﻿ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+li ul div{
+        display: none;
+}
+
+li.active ul div{
+        display: block;
+}
+

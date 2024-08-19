@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Registred users";
+}
+@using MVCE.Models;
+@model List<User>
+<table>
+    <colgroup span="3"></colgroup>
+    <tr>
+        <th> Name</th>
+        <th> Password</th>
+        <th class="table-empty"></th>
+    </tr>
+    @foreach (User user in Model)
+    {
+        <tr>
+            <th>@user.Name</th>
+            <th>@user.Password</th>
+            <th class="table-empty">
+                <form action="/Admin/Delete_User" method="post" >
+                    <button type="submit" name="Name" value="@user.Name">Delete @user.Name</button>
+                </form>
+            </th>
+        </tr>
+    }
+</table>

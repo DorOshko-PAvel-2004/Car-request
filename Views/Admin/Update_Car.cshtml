@@ -1,0 +1,36 @@
+﻿@using MVCE.Models;
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Car update";
+}
+@model Car;
+@if (ViewData["Error_Message"] != null)
+{
+    <a>@ViewData["Error_Message"]</a>
+}
+<form method="post" action="Update">
+    <p>
+        <input type="hidden" name="CarID" value="@Model.CarID" />
+        <label>Car id: @Model.CarID</label>
+    </p>
+    <p>
+        <label>Car full name:</label><br />
+        <input type="text" name="FullName" autocomplete="on" value="@Model.FullName"/>
+    </p>
+    <p>
+        <label>Mark</label><br />
+        <input type="text" name="Mark" autocomplete="on" value="@Model.Mark"/>
+    </p>
+    <p>
+        <label>MaxValue</label><br />
+        <input type="number" name="MaxValue" autocomplete="on" value="@Model.MaxValue"/>
+    </p>
+    <p>
+        <label>CarryTime</label><br />
+        <input type="number" name="CarryTime" autocomplete="on" value="@Model.CarryTime"/>
+    </p>
+    <p>
+        <input type="submit" value="Изменить" />
+    </p>
+</form>
+<button onclick=" location.href='@Url.Action("CarList", "Admin")'">Cancel</button>
