@@ -1,0 +1,150 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MY.COM | @ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        h3 {
+            color: green;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        .a-menu {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-with-background {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+            .form-without-background
+            {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+                input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
+
+        .a-message {
+            color: #ff0000;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+    <script src=@ViewData["Script"]></script>
+</head>
+<body>
+    <h2>@ViewData["Title"]</h2>
+    <div>
+        <a href="/Home/Index" class="a-info">Home</a> | <a href="/Home/Exit" class="a-info">Exit</a> | <a href="/Home/User_Order" class="a-info">My orders</a> | <a href="/Home/Edit_Profile" class="a-info">Edit Profile</a>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>@RenderSection("Footer",false)</footer>
+</body>
+</html>

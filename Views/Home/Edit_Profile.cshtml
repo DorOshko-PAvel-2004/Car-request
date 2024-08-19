@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_LayoutUser";
+    ViewData["Title"] = "Edit your profile";
+}
+@using MVCE.Models;
+@model User
+<a>@ViewBag.Registration_Message</a>
+<form method="post" action="Edit_User" class="form-with-background">
+    <input type="hidden" name="LastName" value="@Model.Name"/>
+    <input type="hidden" name="LastPassword" value="@Model.Password">
+    <p>
+        <label>Login</label><br />
+        <input type="text" name="Name" autocomplete="on" value="@Model.Name"/>
+    </p>
+    <p>
+        <label>Password</label><br />
+        <input type="text" name="Password" autocomplete="on" value="@Model.Password" />
+    </p>
+    <p>
+        <input type="submit" value="Change" />
+    </p>
+</form>
+<form action="/Home/Delete_User" method="post" class="form-without-background">
+    <input type="hidden" name="user_name" value="@Model.Name">
+    <button type="submit">Delete</button>
+</form>

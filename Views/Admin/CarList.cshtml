@@ -1,0 +1,45 @@
+﻿@using MVCE.Models;
+@model List<Car>
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "All cars in process";
+}
+<form method="post" enctype="multipart/form-data" action="/Admin/XmlToWeb">
+    <input type="file" name="xmlFile" accept=".xml" />
+    <button type="submit">Импортировать данные о машинах для выпуска</button>
+</form>
+<button onclick=" location.href='@Url.Action("Create_Car_Page", "Admin")'">Пустить новую машину в производство</button>
+<table>
+    <colgroup span="7"></colgroup>
+    <tr>
+        <th>Car ID</th>
+        <th>Full Car Name</th>
+        <th>Mark</th>
+        <th>Max Value</th>
+        <th>Carry Time</th>
+        <th class="table-empty"></th>
+        <th class="table-empty"></th>
+    </tr>
+    @foreach (Car car in Model)
+    {
+        <tr>
+            <th>@car.CarID</th>
+            <th>@car.FullName</th>
+            <th>@car.Mark</th>
+            <th>@car.MaxValue</th>
+            <th>@car.CarryTime</th>
+
+            <th class="table-empty">
+
+                <form action="/Admin/Delete_Car" method="post">
+                    <button type="submit" name="CarID" value="@car.CarID">Delete @car.CarID</button>
+                </form>
+            </th>
+            <th class="table-empty">
+                <form action="/Admin/Update_Car" method="post">
+                    <button type="submit" name="CarID" value="@car.CarID">Update @car.CarID</button>
+                </form>
+            </th>
+        </tr>
+    }
+</table>

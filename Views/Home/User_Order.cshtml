@@ -1,0 +1,32 @@
+﻿@using MVCE.Models;
+@model List<Order>
+@{  ViewData["Script"] = "~/wwwroot/js/deep_list.js";
+    ViewData["Style"] = "~/wwwroot/css/deep_list.css";
+    Layout = "_LayoutUser";
+    ViewData["Title"] = "My completing orders";
+}
+<form action="/Home/Order">
+    <button type="submit">Make a order!</button>
+</form>
+<ul>
+    @foreach(var order in Model)
+    {
+        <li class="active">
+            Order @order.OrderID. Line's position: @(order.Position). Finish time: @(order.FinishTime)
+            <form action="/Home/Delete_Order" method="post" class="form-without-background">
+                <input type="hidden" name="OrderID" value="@order.OrderID">
+                <button type="submit">Delete</button>
+            </form>
+        <ul>
+            @foreach (OrderCars car in ViewBag.CarsbyOrder)
+            {
+                    if (car.OrderId != order.OrderID) { continue; }
+                    <li>
+                <p>Car  @(ViewBag.Names[car.CarId]) - @(car.CarId.ToString()) is ordered in quantity: @(car.Quantity) </p>
+                </li>
+            }
+        </ul>
+    </li>
+    }
+</ul>
+

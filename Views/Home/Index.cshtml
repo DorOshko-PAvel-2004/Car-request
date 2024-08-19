@@ -1,0 +1,29 @@
+﻿@using MVCE.Models
+@model List<Car>
+@{
+    Layout = ViewData["layout"] != null ? "_LayoutUser" : "_Layout"; ;
+    ViewData["Title"] = "All cars";
+}
+@if (ViewData["Registration_Message"] != null)
+{
+    <a class="a-message">@ViewData["Registration_Message"]</a>
+}
+<table>
+    <colgroup span="3"></colgroup>
+    <tr>
+        <th>Full Car Name</th>
+        <th>Mark</th>
+        <th>Max Value</th>
+    </tr>
+    @foreach (Car car in Model)
+{
+        <tr>
+            <th>@(car.FullName) - @(car.CarID.ToString())</th>
+            <th>@car.Mark</th>
+            <th>@car.MaxValue</th>
+        </tr>
+}
+</table>
+<form action="/Home/Order" class="form-without-background">
+    <button type="submit">Make an order!</button>
+</form>

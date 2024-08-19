@@ -1,0 +1,32 @@
+﻿@using MVCE.Models;
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Car creation";
+}
+@model Car;
+@if (ViewData["Error_Message"]!=null)
+{
+    <a>@ViewData["Error_Message"]</a>
+}
+<form method="post" action="Create_Car" class="form-with-background">
+    <p>
+        <label>Car full name:</label><br />
+        <input type="text" name="FullName"/>
+    </p>
+    <p>
+        <label>Mark</label><br />
+        <input type="text" name="Mark"/>
+    </p>
+    <p>
+        <label>MaxValue</label><br />
+        <input type="number" name="MaxValue"/>
+    </p>
+    <p>
+        <label>CarryTime</label><br />
+        <input type="number" name="CarryTime"/>
+    </p>
+    <p>
+        <input type="submit" value="To infrastructure!" />
+    </p>
+</form>
+<button onclick=" location.href='@Url.Action("CarList", "Admin")'">Cancel</button>

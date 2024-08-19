@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Authorization";
+}
+<a class="a-message">@ViewBag.Registration_Message</a>
+<form method="post" action="Author" class="form-authorization">
+    <p>
+        <label>Login</label><br />
+        <input type="text" name="Name" />
+    </p>
+    <p>
+        <label>Password</label><br />
+        <input type="password" name="Password" />
+    </p>
+    <p>
+        <input type="submit" value="Enter" />
+    </p>
+</form>
